@@ -17,3 +17,117 @@
 
   z-index: 1;
 }
+
+/* header 영역 만들기 */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 68px;
+  background: #f5f;
+
+  z-index: 100;
+}
+
+#header .in-header {
+  width: 179rem;
+  height: 100%;
+  margin: 0 auto;
+
+  background: #ff5;
+}
+#header .header-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 100%;
+}
+
+#header .in-header .logo-box {
+  font-size: 0;
+  line-height: 0;
+  width: 17.1rem;
+  height: 2.4rem;
+}
+#header .in-header .logo-box .logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #55f url(../img/EX-logo.png) no-repeat center / contain;
+}
+
+#header .navigation {
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+#header .navigation .menu-list {
+  display: flex;
+}
+
+#header .navigation {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+}
+#header .navigation .menu-list .menu-item a {
+  margin-right: 3.2rem;
+}
+
+/* a의 last-child를 주면 a의 전체가 먹는다 HTML의 구조를 잘 확인 */
+#header .navigation .menu-list .menu-item:last-child a {
+  margin-right: 0;
+}
+
+#header .navigation .menu-program {
+  display: flex;
+}
+
+#header .navigation .menu-program .program-item:first-child a {
+  margin-right: 3.2rem;
+}
+
+#header .navigation .menu-program .program-item:last-child a {
+  position: relative;
+  color: #2638e0;
+}
+
+#header .navigation .menu-program .program-item:last-child a:after {
+  content: "";
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: url(../img/project-arrow-icon.svg) no-repeat center / contain;
+}
+
+#header .navigation .menu-button {
+}
+#header .navigation .menu-button .menu-btn {
+  color: #fff;
+  width: 9.6rem;
+  height: 4rem;
+  background: #2638e0;
+  border-radius: 10rem;
+
+  font-weight: 700;
+}
+
+#header .navigation .menu-icon {
+  display: flex;
+}
+
+#header .navigation .menu-icon .link-icon {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+}
+#header .navigation .menu-icon .link-icon.icon1 {
+  background: url(../img/header-icon1.svg) no-repeat center / contain;
+  margin-right: 1.6rem;
+}
+#header .navigation .menu-icon .link-icon.icon2 {
+  background: url(../img/header-icon2.svg) no-repeat center / contain;
+}
