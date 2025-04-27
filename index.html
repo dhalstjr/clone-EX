@@ -317,24 +317,51 @@
             <!-- GET : URL 뒤에 파라미터를 붙여서 데이터를 전달하는 방식 - 보안에 취약-->
             <!-- POST : HTTP Request 헤더에 피라미터를 붙여서 데이터를 전송하는 방식 - GET방식보다 보안 우위 -->
             <form method="post" action="" class="email-from">
+              <!-- 구분하기 위해서 area을 사용 -> 공부목적 -->
               <div class="con7-email-area">
                 <!-- 입력 창 태그는 <input> 사용 -> 속성을 바꿔 기능 조절 -->
                 <!-- 속성 (type) : text , number , email, date, file, checkbox, radio,  password -> 다양한 속성 기능을 함-->
-                <div class="email">
-                  <div class="email-address-title"></div>
-                  <div class="email-address-input">
-                    <input type="email" />
+                <!-- input에 hidden 속성 -> 사용자가 변경해서는 안되는 데이터를 서버로 전달할 떄 사용.(보안 토큰, 식별자 등을 숨겨서 전달 가능)-->
+                <input type="hidden" name="_token" autocomplete="off" />
+
+                <!-- label 태그는 폼 요소에 이름을 붙이기 위해서 사용된다. (가독성과 웹접근성을)-->
+                <!-- label for은 label이 연관되는 HTML 요소의 id 속성을 지정하는데 사용,  -->
+                <label for="subsciption_email">이메일 주소*</label>
+
+                <!-- placeholder -> input 태그안에 텍스트(문자) 들어간다 (input에 제목을 붙여주는 위함.) -->
+                <!-- required : 사용자에게 입력이 필요하다는 것을 알려주고, 폼을 제출하기 전에 해당 영역이 비워져 있다면 오류 메시지로 표현. -->
+                <input
+                  type="email"
+                  name="subscription_email"
+                  placeholder="이메일을 입력해주세요."
+                  required
+                />
+
+                <div class="checkbox-area">
+                  <div class="check-box">
+                    <!-- 기본 체크박스 -->
+                    <input type="checkbox" id="subscription_privacy" required />
+                    <label for="subscription_privacy">
+                      <div class="sub-check-box"></div>
+                      (필수) 개인정보 수집 내용에 동의합니다.
+                    </label>
+                  </div>
+
+                  <div class="check-box">
+                    <input type="checkbox" id="subscription_ad" required />
+                    <label for="subscription_ad">
+                      <!-- 체크박스 리뉴얼 -->
+                      <div class="sub-check-box"></div>
+                      (필수) 광고성 정보 수신에 동의합니다.
+                    </label>
                   </div>
                 </div>
-                <div class="checkbox-area">
-                  <div class="check-box"></div>
-                  <div class="check-box"></div>
-                </div>
               </div>
+
               <div class="con7-btn-area">
-                <div class="con7-btn">
-                  <a href="#">구독 신청</a>
-                </div>
+                <!-- button에 type : submit은 양식 제출 버튼이다 form태그로 나타내는 양식의 모든 컨트롤 값을 모두 제출한다. -> submit은 전송 버튼이다. -->
+                <!-- 이 버튼을 클릭하면 입력란을 작성하라는 게 뜬다. -->
+                <button type="submit">구독 신청</button>
               </div>
             </form>
           </div>
@@ -345,6 +372,17 @@
     <!-- main - end-->
 
     <!-- footer - start -->
+    <footer id="footer">
+      <div class="footer-wrapper">
+        <!-- 두 부분으로 나눔. -->
+        <div class="footer-content">
+          <div class="footer-info"></div>
+          <div class="footer-inquiry-btn"></div>
+        </div>
+
+        <div class="footer-copyright"></div>
+      </div>
+    </footer>
     <!-- footer - end-->
   </body>
 </html>
