@@ -49,13 +49,13 @@
   font-size: 0;
   line-height: 0;
   width: 17.1rem;
-  height: 2.4rem;
+  height: 3.2rem;
 }
 #header .in-header .logo-box .logo {
   display: block;
   width: 100%;
   height: 100%;
-  background: #55f url(../img/EX-logo.png) no-repeat center / contain;
+  background: url(../img/EX-logo.png) no-repeat center / contain;
 }
 
 #header .navigation {
@@ -82,7 +82,18 @@
   margin-right: 0;
 }
 
+#header .navigation .menu-list .menu-item:last-child a:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 1px;
+  height: 22px;
+  background-color: #b0bec5;
+  margin-left: 3.2rem;
+}
+
 #header .navigation .menu-program {
+  margin-left: 3.2rem;
   display: flex;
 }
 
@@ -103,7 +114,8 @@
   background: url(../img/project-arrow-icon.svg) no-repeat center / contain;
 }
 
-#header .navigation .menu-button {
+#header .navigation .menu-button:hover .menu-btn {
+  transform: scale(1.04);
 }
 #header .navigation .menu-button .menu-btn {
   color: #fff;
@@ -113,6 +125,8 @@
   border-radius: 10rem;
 
   font-weight: 700;
+
+  transition: 250ms ease-in-out;
 }
 
 #header .navigation .menu-icon {
@@ -130,4 +144,137 @@
 }
 #header .navigation .menu-icon .link-icon.icon2 {
   background: url(../img/header-icon2.svg) no-repeat center / contain;
+}
+
+/* main - visual */
+#main {
+  position: relative;
+}
+#main .section1 {
+  position: relative;
+}
+#main .section1 .visual {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+#main .section1 .visual .visual-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: url(../img/main-background-img.png) no-repeat center bottom/ cover;
+}
+
+#main .section1 .visual .visual-title-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  text-align: center;
+
+  color: #fff;
+}
+
+#main .section1 .visual .visual-title-wrapper .visual-title {
+  font-weight: 700;
+  line-height: 9.25rem;
+  font-size: 5.4rem;
+
+  margin-bottom: 3.2rem;
+}
+
+#main .section1 .visual .visual-title-wrapper .visual-title span {
+  font-size: 9.6rem;
+  /* 폰트 사이즈가 달라 다른 텍스트와 줄을 맞추기 위해 line-height를 줄여 맞춤. */
+  line-height: 9.2rem;
+
+  /* 텍스트 밑줄을 맞추기 위한 방법 1 */
+  /* 또 다른 방법은 transform을 사용하여 하는 방법도 있지만 틀어질 수 있기에 미세조정이 필요할 때 사용한다. */
+  vertical-align: baseline;
+}
+
+#main .section1 .visual .visual-title-wrapper .visual-desc {
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #c7c7c7;
+  margin-bottom: 4rem;
+}
+
+#main .section1 .visual .visual-title-wrapper .visual-btn-wrapper .visual-btn {
+  width: 22rem;
+  height: 4.8rem;
+  border: 1px solid #fff;
+  border-radius: 10rem;
+
+  color: #fff;
+
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 250ms ease-in-out;
+}
+
+/* 버튼 hover 효과 */
+#main
+  .section1
+  .visual
+  .visual-title-wrapper
+  .visual-btn-wrapper:hover
+  .visual-btn {
+  transform: scale(1.03);
+}
+
+#main
+  .section1
+  .visual
+  .visual-title-wrapper
+  .visual-btn-wrapper
+  .visual-btn:after {
+  content: "";
+  display: block;
+  width: 1.9rem;
+  height: 0.5rem;
+  background: url(../img/btn-arrow.svg) no-repeat center bottom;
+  margin-left: 2.8rem;
+}
+
+#main .section1 .visual .visual-arrow-wrapper {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+#main .section1 .visual .visual-arrow-wrapper .visual-arrow {
+  width: 4.4rem;
+  height: 4.4rem;
+  background: url(../img/scroll-arrow-icon.svg) no-repeat center;
+  margin-bottom: 5vh;
+
+  /* 애니메이션 적용 */
+  /* alternate는 direction의 속성 중 하나로 애니메이션이 종료된 후 반대 방향으로 다시 시작하도록 지정하는 CSS 속성이다. */
+  /* 즉, 일종의 흔들림이나 반복되는 효과를 주어 애니메이션의 생동감을 부여. */
+  animation: ScrollMove 1000ms alternate infinite;
+}
+
+/* 스크롤 아이콘 움직임 애니메이션 만들기 */
+@keyframes ScrollMove {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
 }
