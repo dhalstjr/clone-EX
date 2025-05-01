@@ -278,3 +278,190 @@
     transform: translateY(-10px);
   }
 }
+
+/* main section2 */
+#main .section2 {
+  position: relative;
+  background: #ff5 url(../img/main-section2-background.png) no-repeat 0 0 /
+    cover;
+  padding: 112px 0;
+}
+
+#main .main-wrap {
+  width: 100%;
+  max-width: 1312px;
+  margin: 0 auto;
+
+  /* 틀어지는 걸 잡기 쉽지 않음. */
+  /*   padding: 0 304px; */
+}
+
+#main .section2 .main-con1 {
+  display: flex;
+  flex-direction: column;
+}
+
+#main .section2 .main-con1 .content1 {
+  margin-bottom: 112px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /* con-desc에 padding을 준 이유는 content1의 높이를 가지기 위해서 주는 것 같음. */
+  /*   height: 34.3rem; */
+}
+
+#main .section2 .main-con1 .content1 .con-title {
+}
+
+#main .section2 .main-con1 .content1 .con-desc {
+  width: 100%;
+  max-width: 616px;
+  margin-left: auto;
+
+  /* 안에 패딩을 주는 이유를 잘 모르겠음.. */
+  padding: 4.3rem 4.6rem 18rem;
+}
+
+#main .section2 .con-title .small-title {
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+  color: #2638e0;
+
+  margin-bottom: 1.6rem;
+}
+#main .section2 .con-title .big-title {
+  font-weight: 700;
+  font-size: 5.2rem;
+  line-height: 6.24rem;
+  color: #000;
+}
+
+#main .section2 .con-text {
+  font-weight: 500;
+  font-size: 2rem;
+  color: #1e2a3b;
+  line-height: 1.5;
+
+  word-break: keep-all;
+}
+
+#main .section2 .main-con1 .content1 .con-text {
+  margin-bottom: 3.2rem;
+}
+
+/* 버튼 공통 CSS */
+#main .section2 .con-btn {
+  background: #2638e0;
+  color: #fff;
+
+  border-radius: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+
+  box-shadow: 0px 8px 16px rgba(4, 61, 205, 0.3);
+
+  transition: 250ms ease-in-out;
+}
+
+/* 크기 따로 주기 */
+#main .section2 .main-con1 .content1 .con-btn {
+  width: 13.6rem;
+  height: 4.8rem;
+}
+
+#main .section2 .con-btn:hover {
+  transform: scale(1.04);
+}
+#main .section2 .con-btn:after {
+  content: "";
+  display: block;
+  width: 2.2rem;
+  height: 0.6rem;
+  background: url(../img/btn-arrow.svg) no-repeat center bottom;
+
+  margin-left: 2.4rem;
+}
+
+/* content2 부분 */
+#main .section2 .content2 {
+}
+#main .section2 .content2 .content2-title {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 8rem;
+}
+
+#main .section2 .content2 .con-title {
+  margin-bottom: 3.2rem;
+}
+
+#main .section2 .content2 .con-desc {
+  display: flex;
+  justify-content: space-between;
+}
+
+#main .section2 .content2 .con-desc .con-text {
+  margin-top: auto;
+}
+
+#main .section2 .content2 .con-desc .con-btn {
+  width: 19.8rem;
+  height: 4.8rem;
+}
+
+#main .section2 .content2 .content2-item-con {
+  display: flex;
+  justify-content: space-between;
+  gap: 3.2rem;
+}
+
+#main .section2 .content2 .content2-item-con .con-item {
+}
+
+#main .section2 .content2 .content2-item-con .con-item .item-img {
+  width: 62rem;
+  height: 24rem;
+  /*   background: #000; */
+  margin-bottom: 2.4rem;
+  object-fit: cover;
+}
+#main .section2 .content2 .content2-item-con .con-item .item-img.con-img1 {
+  /* background안에 이미지에 그라데이션 주기기 */
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(38, 56, 224, 0.2)),
+    url(../img/section2-content2-img1.png) no-repeat center 50% / cover;
+
+  /* 이미지에 그림자 */
+  box-shadow: 0px 20px 24px -4px rgba(0, 0, 0, 0.08),
+    0px 8px 8px -4px rgba(0, 0, 0, 0.03);
+}
+#main .section2 .content2 .content2-item-con .con-item .item-img.con-img2 {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(38, 56, 224, 0.2)),
+    url(../img/section2-content2-img2.png) no-repeat center 50% / cover;
+
+  box-shadow: 0px 20px 24px -4px rgba(0, 0, 0, 0.08),
+    0px 8px 8px -4px rgba(0, 0, 0, 0.03);
+}
+
+#main .section2 .content2 .content2-item-con .con-item .item-date {
+  color: #37474f;
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+
+  margin-bottom: 0.4rem;
+}
+#main .section2 .content2 .content2-item-con .con-item .item-title {
+  font-weight: 600;
+  font-size: 2.4rem;
+  line-height: 3.36rem;
+  color: #000;
+}
+
+/* section3 CSS */
