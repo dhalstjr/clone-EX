@@ -501,6 +501,8 @@
   align-items: center;
 
   gap: 3.2rem;
+
+  margin-bottom: 3.6rem;
 }
 #main .section3 .content3 .main-con3-slide .swiper-wrapper .swiper-slide {
 }
@@ -530,7 +532,8 @@
   .swiper-slide
   .swiper-card
   .card-logo {
-  margin-bottom: 2.4rem;
+  display: flex;
+  align-items: center;
   /* 가상요소가 실제로 공간을 차지하게 하려면 absolute나 relative를 설정해야한다. */
   /* position: relative; */
 }
@@ -538,7 +541,7 @@
 /* 가상요소로 하면 겹쳐서 사용 불가 display : block을 줘도 공간을 따로 차지하지 않음. */
 /* 가상요소를 block을 설정해도 공간을 차지 않는 주요 원인은 가상 요소의 기본 속성이 position : static 떄문이다. */
 /* 즉, 가상요소가 부모 요소의 컨텐츠 영역에 영향을 미치지 않도록 설정되어 있기 때문에, block을 설정해도 실제로 공간을 차지 하지 않는 것처럼 보일 수 있다. */
-#main
+/* #main
   .section3
   .content3
   .main-con3-slide
@@ -556,10 +559,79 @@
   background: url(../img/mian-content3-card-icon-img.png) no-repeat 0 0 /
     contain;
 
-  /* 해도 안되네용 HTML에 넣어서 사용하겠씁니당.  */
-  /*   position: absolute;
+    해도 안되네용 HTML에 넣어서 사용하겠씁니당. 
+  position: absolute;
   top: 0;
-  left: 0; */
+  left: 0;
+} */
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide
+  .swiper-card
+  .card-icon {
+  display: block;
+  width: 2.6rem;
+  height: 2.4rem;
+
+  background: url(../img/mian-content3-card-icon-img.png) no-repeat 0 0 /
+    contain;
+}
+
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide:nth-child(2)
+  .swiper-card
+  .card-icon,
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide:nth-child(4)
+  .swiper-card
+  .card-icon,
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide:nth-child(5)
+  .swiper-card
+  .card-icon {
+  margin-bottom: 2.7rem;
+}
+
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide:nth-child(1)
+  .swiper-card
+  .card-icon,
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide:nth-child(3)
+  .swiper-card
+  .card-icon,
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide:nth-child(6)
+  .swiper-card
+  .card-icon {
+  margin-bottom: 4.2rem;
 }
 
 #main
@@ -571,10 +643,12 @@
   .swiper-card
   .card-logo.logo-img1 {
   width: 17.8rem;
-  height: 5.2rem;
+  height: 2.5rem;
 
   background: url(../img/main-content3-card-logo1.png) no-repeat 0 0;
+  margin-bottom: 3.6rem;
 }
+
 #main
   .section3
   .content3
@@ -587,6 +661,8 @@
   height: 5.2rem;
 
   background: url(../img/main-content3-card-logo2.png) no-repeat 0 0;
+
+  margin-bottom: 2.4rem;
 }
 
 #main
@@ -598,9 +674,11 @@
   .swiper-card
   .card-logo.logo-img3 {
   width: 15.6rem;
-  height: 5.2rem;
+  height: 2.5rem;
 
   background: url(../img/main-content3-card-logo3.png) no-repeat 0 0;
+
+  margin-bottom: 3.6rem;
 }
 
 #main
@@ -615,6 +693,7 @@
   height: 5.2rem;
 
   background: url(../img/main-content3-card-logo2.png) no-repeat 0 0;
+  margin-bottom: 2.4rem;
 }
 
 #main
@@ -629,6 +708,8 @@
   height: 5.2rem;
 
   background: url(../img/main-content3-card-logo2.png) no-repeat 0 0;
+
+  margin-bottom: 2.4rem;
 }
 
 #main
@@ -640,9 +721,10 @@
   .swiper-card
   .card-logo.logo-img6 {
   width: 14.5rem;
-  height: 5.2rem;
+  height: 2.5rem;
 
   background: url(../img/main-content3-card-logo1.png) no-repeat 0 0;
+  margin-bottom: 3.6rem;
 }
 
 #main
@@ -675,4 +757,80 @@
   color: #546e7a;
 
   word-break: keep-all;
+}
+
+#main .section3 .main-con3-swiper-area {
+  display: flex;
+
+  justify-content: space-between;
+}
+#main .section3 .main-con3-swiper-area .swiper-pagination {
+  display: flex;
+  gap: 8px;
+}
+#main .section3 .main-con3-swiper-area .swiper-pagination .pagination-bullets {
+  width: 8px;
+  height: 8px;
+  background: #455a64;
+  border-radius: 4px;
+
+  display: block;
+
+  cursor: pointer;
+}
+
+#main
+  .section3
+  .main-con3-swiper-area
+  .swiper-pagination
+  .pagination-bullets.active {
+  background: #fff;
+}
+
+#main .section3 .main-con3-swiper-area .swiper-arrow-buttons {
+  display: flex;
+  gap: 18px;
+}
+#main .section3 .main-con3-swiper-area .swiper-arrow-buttons .arrow-button {
+  width: 100%;
+  height: 100%;
+}
+#main .section3 .main-con3-swiper-area .swiper-arrow-buttons .arrow-button a {
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.8rem;
+  height: 4.8rem;
+  border: 1px solid #fff;
+
+  border-radius: 4.8rem;
+}
+
+#main
+  .section3
+  .main-con3-swiper-area
+  .swiper-arrow-buttons
+  .arrow-button
+  .arrow-prev:before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+
+  background: url(../img/btn-arrow-prev.svg) no-repeat 35% 50% / contain;
+}
+
+#main
+  .section3
+  .main-con3-swiper-area
+  .swiper-arrow-buttons
+  .arrow-button
+  .arrow-next:before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+
+  background: url(../img/btn-arrow-next.svg) no-repeat 50% 50% / contain;
 }
