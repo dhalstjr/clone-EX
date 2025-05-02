@@ -322,7 +322,7 @@
   padding: 4.3rem 4.6rem 18rem;
 }
 
-#main .section2 .con-title .small-title {
+#main .con-title .small-title {
   font-weight: 600;
   font-size: 1.8rem;
   line-height: 2.7rem;
@@ -330,20 +330,22 @@
 
   margin-bottom: 1.6rem;
 }
-#main .section2 .con-title .big-title {
+#main .con-title .big-title {
   font-weight: 700;
   font-size: 5.2rem;
   line-height: 6.24rem;
   color: #000;
 }
 
-#main .section2 .con-text {
+#main .con-text {
   font-weight: 500;
   font-size: 2rem;
-  color: #1e2a3b;
   line-height: 1.5;
 
   word-break: keep-all;
+}
+#main .section2 .con-text {
+  color: #1e2a3b;
 }
 
 #main .section2 .main-con1 .content1 .con-text {
@@ -465,3 +467,212 @@
 }
 
 /* section3 CSS */
+#main .section3 {
+  position: relative;
+  padding: 112px 0;
+  background: url(../img/section3-bg-img.png) no-repeat 50% 50% / cover;
+  object-fit: cover;
+}
+#main .section3 .content3 .con-title {
+}
+#main .section3 .content3 .con-title .small-title {
+  color: #9eeeff;
+}
+
+#main .section3 .content3 .con-title .big-title {
+  color: #fff;
+  /* span class는 block요소가 아니라 block을 줘야 가능하다. */
+  display: block;
+  margin-bottom: 3.6rem;
+}
+
+#main .section3 .content3 .con-title .con-text {
+  color: #fff;
+  margin-bottom: 8rem;
+}
+
+/* swiper.js를 이용한 카드 슬라이드 */
+#main .section3 .content3 .main-con3-slide {
+  position: relative;
+}
+
+#main .section3 .content3 .main-con3-slide .swiper-wrapper {
+  display: flex;
+  align-items: center;
+
+  gap: 3.2rem;
+}
+#main .section3 .content3 .main-con3-slide .swiper-wrapper .swiper-slide {
+}
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide
+  .swiper-card {
+  width: 49.4rem;
+  height: 34.5rem;
+
+  background: #fff;
+  border-radius: 2rem;
+
+  padding: 3.2rem;
+
+  position: relative;
+}
+
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide
+  .swiper-card
+  .card-logo {
+  margin-bottom: 2.4rem;
+  /* 가상요소가 실제로 공간을 차지하게 하려면 absolute나 relative를 설정해야한다. */
+  /* position: relative; */
+}
+
+/* 가상요소로 하면 겹쳐서 사용 불가 display : block을 줘도 공간을 따로 차지하지 않음. */
+/* 가상요소를 block을 설정해도 공간을 차지 않는 주요 원인은 가상 요소의 기본 속성이 position : static 떄문이다. */
+/* 즉, 가상요소가 부모 요소의 컨텐츠 영역에 영향을 미치지 않도록 설정되어 있기 때문에, block을 설정해도 실제로 공간을 차지 하지 않는 것처럼 보일 수 있다. */
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide
+  .swiper-card
+  .card-logo::after {
+  content: "";
+
+  display: block;
+  width: 2.6rem;
+  height: 2.4rem;
+  margin-bottom: 2.7rem;
+
+  background: url(../img/mian-content3-card-icon-img.png) no-repeat 0 0 /
+    contain;
+
+  /* 해도 안되네용 HTML에 넣어서 사용하겠씁니당.  */
+  /*   position: absolute;
+  top: 0;
+  left: 0; */
+}
+
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide
+  .swiper-card
+  .card-logo.logo-img1 {
+  width: 17.8rem;
+  height: 5.2rem;
+
+  background: url(../img/main-content3-card-logo1.png) no-repeat 0 0;
+}
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide
+  .swiper-card
+  .card-logo.logo-img2 {
+  width: 6.2rem;
+  height: 5.2rem;
+
+  background: url(../img/main-content3-card-logo2.png) no-repeat 0 0;
+}
+
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide
+  .swiper-card
+  .card-logo.logo-img3 {
+  width: 15.6rem;
+  height: 5.2rem;
+
+  background: url(../img/main-content3-card-logo3.png) no-repeat 0 0;
+}
+
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide
+  .swiper-card
+  .card-logo.logo-img4 {
+  width: 4.5rem;
+  height: 5.2rem;
+
+  background: url(../img/main-content3-card-logo2.png) no-repeat 0 0;
+}
+
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide
+  .swiper-card
+  .card-logo.logo-img5 {
+  width: 4.5rem;
+  height: 5.2rem;
+
+  background: url(../img/main-content3-card-logo2.png) no-repeat 0 0;
+}
+
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide
+  .swiper-card
+  .card-logo.logo-img6 {
+  width: 14.5rem;
+  height: 5.2rem;
+
+  background: url(../img/main-content3-card-logo1.png) no-repeat 0 0;
+}
+
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide
+  .swiper-card
+  .card-title {
+  font-weight: 600;
+  font-size: 2.2rem;
+  line-height: 3.3rem;
+  color: #000;
+
+  margin-bottom: 1.6rem;
+}
+
+#main
+  .section3
+  .content3
+  .main-con3-slide
+  .swiper-wrapper
+  .swiper-slide
+  .swiper-card
+  .card-text {
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #546e7a;
+
+  word-break: keep-all;
+}
