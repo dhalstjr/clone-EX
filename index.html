@@ -460,11 +460,14 @@
 
       <!-- main-section7  -->
       <div class="section7">
-        <div class="sec7-wrapper">
+        <div class="sec7-wrap">
           <div class="content7">
             <div class="con7-title">
-              <h2 class="title"></h2>
-              <span class="text"></span>
+              <h2 class="title">EX감성 뉴스레터 구독</h2>
+              <span class="text">
+                놓칠 수 없는 최신 마케팅·디자인 인사이트! 지금 무료로
+                받아보세요✨
+              </span>
             </div>
 
             <!-- 주소 입력창과 체크박스, 버튼 -> input을 활용한 HTML -->
@@ -486,7 +489,9 @@
 
                 <!-- label 태그는 폼 요소에 이름을 붙이기 위해서 사용된다. (가독성과 웹접근성을)-->
                 <!-- label for은 label이 연관되는 HTML 요소의 id 속성을 지정하는데 사용,  -->
-                <label for="subsciption_email">이메일 주소*</label>
+                <label for="subsciption_email" class="address">
+                  이메일 주소*
+                </label>
 
                 <!-- placeholder -> input 태그안에 텍스트(문자) 들어간다 (input에 제목을 붙여주는 위함.) -->
                 <!-- required : 사용자에게 입력이 필요하다는 것을 알려주고, 폼을 제출하기 전에 해당 영역이 비워져 있다면 오류 메시지로 표현. -->
@@ -495,6 +500,7 @@
                   name="subscription_email"
                   placeholder="이메일을 입력해주세요."
                   required
+                  class="email-text"
                 />
 
                 <div class="checkbox-area">
@@ -502,7 +508,6 @@
                     <!-- 기본 체크박스 -->
                     <input type="checkbox" id="subscription_privacy" required />
                     <label for="subscription_privacy">
-                      <div class="sub-check-box"></div>
                       (필수) 개인정보 수집 내용에 동의합니다.
                     </label>
                   </div>
@@ -511,7 +516,6 @@
                     <input type="checkbox" id="subscription_ad" required />
                     <label for="subscription_ad">
                       <!-- 체크박스 리뉴얼 -->
-                      <div class="sub-check-box"></div>
                       (필수) 광고성 정보 수신에 동의합니다.
                     </label>
                   </div>

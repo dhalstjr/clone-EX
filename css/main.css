@@ -1175,3 +1175,138 @@
   background: url(../img/card-more-viwe-icon.svg) no-repeat center bottom /
     contain;
 }
+
+/* section7 CSS */
+#main .section7 {
+  position: relative;
+
+  /* 기본색을 바탕으로 깔아주고 그라디언트 색을 투명하게 설정하여 바탕 색 설정 */
+  /* 0deg에서 0%는 밑 , 100%는 위에서  */
+  background: linear-gradient(
+      0deg,
+      rgba(158, 238, 255, 0.25) 0%,
+      rgba(38, 56, 224, 0.25) 100%
+    ),
+    #2638e0;
+}
+
+#main .section7 .sec7-wrap {
+  padding: 64px 440px;
+}
+
+#main .section7 .content7 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#main .section7 .content7 .con7-title {
+  color: #fff;
+}
+
+#main .section7 .content7 .con7-title .title {
+  font-weight: 700;
+  font-size: 4.8rem;
+  line-height: 5.76rem;
+
+  margin-bottom: 1.6rem;
+}
+#main .section7 .content7 .con7-title .text {
+  width: 36.2rem;
+  display: block;
+
+  word-break: keep-all;
+  font-weight: 500;
+  font-size: 2.2rem;
+  line-height: 3.3rem;
+}
+
+/* form 태그 CSS */
+#main .section7 .content7 .email-from {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+
+  width: 100%;
+  max-width: 39.8rem;
+}
+
+#main .section7 .content7 .email-from .con7-email-area {
+}
+
+#main .section7 .content7 .email-from .address {
+  display: block;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+
+  margin-bottom: 8px;
+}
+
+#main .section7 .content7 .email-from .email-text {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 14px;
+  border-radius: 8px;
+
+  font-weight: 400;
+  font-size: 1.6rem;
+
+  /* 폰트 컬러가 바뀌지 않음 -> placeholder 속성으로 들어간 문자는 placeholder의 폰트 색을 바꿔줘야한다. */
+  /* placeholder와 별개로 input의 색을 따로 지정해줘야 input 태그안에 텍스트를 기입했을 떄 구분이 간다. */
+  color: #000;
+
+  margin-bottom: 16px;
+}
+
+/* ::placeholder로 지정한 후 폰트컬러를 바꾸면 가능하다 */
+#main .section7 .content7 .email-from .email-text::placeholder {
+  color: #cbd4e1;
+}
+
+#main .section7 .content7 .email-from .checkbox-area {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 36px;
+}
+#main .section7 .content7 .email-from .checkbox-area .check-box {
+  display: flex;
+  align-items: center;
+}
+
+#main .section7 .content7 .email-from .checkbox-area .check-box:first-child {
+  margin-bottom: 12px;
+}
+
+#main .section7 .content7 .email-from .checkbox-area .check-box input {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+#main .section7 .content7 .email-from .checkbox-area .check-box label {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+
+  margin-left: 8px;
+}
+
+#main .section7 .content7 .email-from .con7-btn-area button {
+  width: 100%;
+  height: 6.8rem;
+  background: #000;
+  border-radius: 8px;
+
+  color: #fff;
+  font-weight: 600;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+}
+
+/* footer CSS */
