@@ -1043,3 +1043,135 @@
   width: 175px;
   height: 244px;
 }
+
+/* section6 CSS */
+#main .section6 {
+  padding: 112px 0;
+  position: relative;
+
+  background: url(../img/main-section6-bg.png) no-repeat center bottom / cover;
+}
+
+#main .section6 .con-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 111px;
+}
+
+#main .section6 .title-area {
+}
+#main .section6 .title-area .big-title {
+  display: block;
+  margin-bottom: 3.6rem;
+}
+#main .section6 .title-area .con-text {
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 3rem;
+
+  color: #37474f;
+}
+
+#main .section6 .btn-area .con-btn {
+  width: 18.2rem;
+  height: 4.8rem;
+}
+
+#main .section6 .btn-area .con-btn:hover {
+  transform: scale(1.04);
+}
+#main .section6 .btn-area .con-btn a:after {
+  content: "";
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+
+  background: url(../img/download-icon.svg) no-repeat 50% / contain;
+
+  margin-left: 2.4rem;
+}
+
+#main .section6 .btn-area .con-btn a {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#main .section6 .card-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#main .section6 .card-area .con-card {
+  width: 64rem;
+  height: 24.8rem;
+
+  padding: 40px 34px;
+
+  background: url(../img/main-section5-card-img.png) no-repeat center center /
+    cover;
+
+  border-radius: 1.6rem;
+
+  cursor: pointer;
+
+  transition: 250ms ease-in-out;
+}
+
+#main .section6 .card-area .con-card:hover {
+  transform: scale(1.05);
+}
+
+#main .section6 .card-area .con-card .card-text {
+  color: #bce2ea;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+
+  margin-bottom: 4rem;
+}
+
+#main .section6 .card-area .con-card .card-title {
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.36rem;
+
+  color: #fff;
+  margin-bottom: 1.2rem;
+}
+
+#main .section6 .card-area .con-card .card-desc {
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #d8daea;
+
+  margin-bottom: 2.4rem;
+}
+
+#main .section6 .card-area .card-link-btn a {
+  display: block;
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+
+  display: flex;
+  align-items: center;
+}
+
+#main .section6 .card-area .card-link-btn a:after {
+  content: "";
+  display: inline-block;
+  width: 2.4em;
+  height: 2.4rem;
+
+  background: url(../img/card-more-viwe-icon.svg) no-repeat center bottom /
+    contain;
+}
