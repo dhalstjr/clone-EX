@@ -25,24 +25,221 @@
   left: 0;
   width: 100%;
   height: 68px;
-  background: #f5f;
+  background: #fff;
 
   z-index: 100;
 }
 
+/* header에 서브메뉴 -> 메뉴바탕 */
+#header:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 68px;
+  left: 0;
+
+  width: 100%;
+  height: 21.6rem;
+
+  background: #fff;
+
+  opacity: 0;
+}
+
 #header .in-header {
-  width: 179rem;
+  width: 100%;
+  max-width: 179rem;
   height: 100%;
   margin: 0 auto;
-
-  background: #ff5;
 }
+
 #header .header-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   height: 100%;
+
+  position: relative;
+}
+
+/* 서브 메뉴를 위한 CSS */
+#header .in-header:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  border-bottom: 1px solid #c8d4e1;
+}
+
+/* 서브메뉴 만들기 -> 떨어지는 서브메뉴 */
+#header .navigation-gnb-pc {
+  position: relative;
+
+  width: 100%;
+  height: 21.6rem;
+
+  /* scroll효과를 주기 위해서 translate  */
+  transform: translate(0, -300px);
+  transition: transform 300ms ease-in-out;
+
+  /*   height: 21.6rem; */
+
+  background: #fff;
+
+  /* box-shadow와 filter 속성에 drop-shadow의 차이점은 */
+  /* box-shadow는 요소 전체 박스에 그림자를 적용하고, filter : drop-shadow는 요소 형태에 그림자를 적용. */
+  /* 즉, box-shadow는 테두리를 포함한 네모난 영역에 적용, filter : drop-shadow는 실제 로고, 이미지처럼 실제 모양에 맞춰서 그림자를 적용한다. */
+  /*   box-shadow: 0px 4px 8px #faf9f9; */
+  filter: drop-shadow(0px 4px 8px #faf9f9);
+}
+
+/* active 클래스 부여 해 구현 */
+#header .navigation-gnb-pc.active {
+  transform: translate(0, 0);
+}
+
+#header .navigation-gnb-pc .nav-gnb-item {
+  max-width: 1782px;
+  margin: 0 auto;
+
+  padding: 20px 0;
+
+  opacity: 0;
+}
+
+#header .navigation-gnb-pc .nav-gnb-item.active {
+  opacity: 1;
+}
+
+#header .navigation-gnb-pc .nav-gnb-item .nav-gnb-list {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 44px;
+}
+
+#header .navigation-gnb-pc .nav-gnb-item .nav-gnb-list .nav-gnb-list-item {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 320px;
+
+  border-right: 1px solid #b0bec5;
+
+  color: #b0bec5;
+
+  transition: color 200ms ease-in-out;
+}
+
+#header
+  .navigation-gnb-pc
+  .nav-gnb-item
+  .nav-gnb-list
+  .nav-gnb-list-item:hover {
+  color: black;
+}
+
+#header
+  .navigation-gnb-pc
+  .nav-gnb-item
+  .nav-gnb-list
+  .nav-gnb-list-item.active {
+  color: black;
+}
+
+#header
+  .navigation-gnb-pc
+  .nav-gnb-item
+  .nav-gnb-list
+  .nav-gnb-list-item:last-child {
+  border-right: 0;
+}
+
+#header
+  .navigation-gnb-pc
+  .nav-gnb-item
+  .nav-gnb-list
+  .nav-gnb-list-item
+  .list-item-title {
+  display: block;
+  margin-bottom: 16px;
+
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+}
+
+/* 가상요소로 넣으면 조금 곤란해지는 경우가 있음. */
+/* a + a 라는 형제 선택자 구조이기 때문에 일괄적으로 모두 색이 바뀔 수가 없음. */
+/* 결국엔 a태그에 class를 부여. */
+#header
+  .navigation-gnb-pc
+  .nav-gnb-item
+  .nav-gnb-list
+  .nav-gnb-list-item
+  .dot-link {
+  margin-bottom: 12px;
+
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  font-weight: 500;
+
+  display: flex;
+  align-items: center;
+}
+
+/* 텍스트도 hover가 됐을 때 바뀌려면 텍스트 부분에 class를 부여해야 될 것같음 */
+/* 바꾸고 구현 span으로 inline 요소로 설정 */
+#header
+  .navigation-gnb-pc
+  .nav-gnb-item
+  .nav-gnb-list
+  .nav-gnb-list-item
+  .dot-link
+  .text-link:hover {
+  color: #2638e0;
+}
+
+#header
+  .navigation-gnb-pc
+  .nav-gnb-item
+  .nav-gnb-list
+  .nav-gnb-list-item
+  .dot-link:before {
+  content: "";
+  display: inline-block;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 2px;
+
+  background: #cfd8dc;
+
+  margin-right: 12px;
+  transition: background 200ms ease-in-out;
+}
+
+/* 그래서 li(nav-gnb-list-item)에 hover시에 a에 있는 모든 것이 컬러가 변경. */
+#header
+  .navigation-gnb-pc
+  .nav-gnb-item
+  .nav-gnb-list
+  .nav-gnb-list-item.active
+  .dot-link:before,
+#header
+  .navigation-gnb-pc
+  .nav-gnb-item
+  .nav-gnb-list
+  .nav-gnb-list-item:hover
+  .dot-link:before {
+  background: #2638e0;
 }
 
 #header .in-header .logo-box {
@@ -75,7 +272,18 @@
 }
 #header .navigation .menu-list .menu-item a {
   margin-right: 3.2rem;
+
+  transition: all 200ms ease-in-out;
 }
+
+#header .navigation .menu-list .menu-item a.active {
+  color: #2638e0;
+}
+
+/* 
+#header .navigation .menu-list .menu-item a:hover {
+  color: #2638e0;
+} */
 
 /* a의 last-child를 주면 a의 전체가 먹는다 HTML의 구조를 잘 확인 */
 #header .navigation .menu-list .menu-item:last-child a {

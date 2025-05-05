@@ -47,7 +47,7 @@ body {
 
 input {
   list-style: none;
-  /* 체크 박스 사라지게 됨 */
+  /* input -> 체크 박스 사라지게 됨 */
   -webkit-appearance: none; /* 기본 스타일 제거 */
   -moz-appearance: none; /* 기본 스타일 제거 */
   appearance: none; /* 기본 스타일 제거 */
