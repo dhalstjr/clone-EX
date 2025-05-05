@@ -1,22 +1,19 @@
 // header javaScript - > JQuery 사용하지 않고 해보기.
 $(function () {
   const header = document.querySelector("#header");
-  console.log(header);
 
   const menuItem = document.querySelectorAll(".menu-item a");
-  console.log(menuItem);
 
   const headerSub = document.querySelector("#header .navigation-gnb-pc");
-  console.log(headerSub);
 
   const headerSubList = document.querySelector(
     "#header .navigation-gnb-pc .nav-gnb-item"
   );
 
   const navItems = document.querySelectorAll(".nav-gnb-list-item");
-  console.log(navItems);
 
-  console.log(headerSubList);
+  console.log(header, menuItem, headerSub, headerSubList, navItems);
+
   // javaScript는 이벤트를 실행하려면 addEventListener를 사용
   // addEventListener에 hover라는 이벤트가 없음 -> 대신에 mouseenter,mouseleave, mouseover,mouseout 등 4가지가 있음
   // 이렇게 사용하면 안됨. querySelectorAll()로 가져온 것은 여러 개의 요소(NodeList는 배열처럼 보이지만 배열이 아님)로 반환하기 떄문에

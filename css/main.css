@@ -1683,3 +1683,41 @@
   background: url(../img/footer-sns-icon5-in.svg) no-repeat center center /
     contain;
 }
+
+/* 탑버튼 구현 */
+.top-btn {
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+
+  display: block;
+  width: 72px;
+  height: 72px;
+  border: 1px solid #2638e0;
+  background: #fff;
+
+  border-radius: 36px;
+  box-shadow: 0px 8px 16px rgba(4, 61, 205, 0.3);
+
+  z-index: 100;
+}
+
+.top-btn a:before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  background: url(../img/top-btn-icon.svg) no-repeat center center / contain;
+
+  transform: rotate(-45deg);
+}
+
+.top-btn a {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
