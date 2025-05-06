@@ -703,18 +703,28 @@
 /* swiper.js를 이용한 카드 슬라이드 */
 #main .section3 .content3 .main-con3-slide {
   position: relative;
+  /* swiper.js를 통해서 hidden 되어있는 것을 재설정. */
+  overflow: visible;
 }
 
 #main .section3 .content3 .main-con3-slide .swiper-wrapper {
   display: flex;
   align-items: center;
 
-  gap: 3.2rem;
+  /* js에서 spaceBetween으로 설정함 */
+  /*   gap: 3.2rem; */
 
   margin-bottom: 3.6rem;
 }
 #main .section3 .content3 .main-con3-slide .swiper-wrapper .swiper-slide {
+  /* swiper.js에서 기본적으로 설정되어있는 것을 재설정.  */
+  /* flex-shrink는 Flexbox 레이아웃에서 항목이 남은 공간을 어떻게 처리할 지 결정하는 속성. */
+  /* 0은 항목이 줄어들지 않도록 설정 , 1은 항목에 따라 줄어들 수 있도록 한다. */
+  /* slidesPerView , spaceBetween 등 다른 Swiper 설정을 활용하여 슬라이드 레이아웃을 원하는대로 설정할 수 있다. */
+  /*   flex-shrink: 1; */
+  max-width: 49.4rem;
 }
+
 #main
   .section3
   .content3
@@ -973,11 +983,20 @@
 
   justify-content: space-between;
 }
+
+/* pagination을 설정하면 CSS를 변경해줘야함 */
 #main .section3 .main-con3-swiper-area .swiper-pagination {
   display: flex;
+  position: static;
   gap: 8px;
 }
-#main .section3 .main-con3-swiper-area .swiper-pagination .pagination-bullets {
+
+/* swiper-pagination-bullet으로 class를 변경함으로서, CSS도 다시 바꿔주기 */
+#main
+  .section3
+  .main-con3-swiper-area
+  .swiper-pagination
+  .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
   background: #455a64;
@@ -992,8 +1011,15 @@
   .section3
   .main-con3-swiper-area
   .swiper-pagination
-  .pagination-bullets.active {
+  .swiper-pagination-bullet-active {
   background: #fff;
+}
+
+/* 설정되어있는 margin이 있기 때문에 margin을 0으로 설정해야 자기 다지인 기준의 gap을 구현할 수 있다. */
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  margin: 0;
 }
 
 #main .section3 .main-con3-swiper-area .swiper-arrow-buttons {
