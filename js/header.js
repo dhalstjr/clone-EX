@@ -77,4 +77,22 @@ $(function () {
     headerSub.classList.remove("active");
     headerSubList.classList.remove("active");
   });
+
+  // 메뉴 아이콘을 선택했을 떄 서브 메뉴 활성화
+  // 메뉴 아이콘 변수에 저장
+  const menuIcon2 = document.querySelector(".icon2");
+  //   console.log(menuIcon2);
+
+  menuIcon2.addEventListener("click", function () {
+    // classList에 toggle을 이용하여 상호작용해서 메뉴 아이콘 클릭시 추가 및 제거 실시
+    headerSub.classList.toggle("active");
+    headerSubList.classList.toggle("active");
+  });
+
+  // scroll을 이용해 헤더 효과 적용 해야함 (scrollTop일 때)
+  // header가 fixed일 때 스크롤 값을 연동해서 스크롤이 내려가면 헤더가 사라지고 스크롤이 올라가면 헤더가 나오게 하기
+
+  var thisTop = document.addEventListener("scroll", function () {
+    console.log(thisTop);
+  });
 });
