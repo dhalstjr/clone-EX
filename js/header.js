@@ -123,14 +123,20 @@ $(function () {
   // header의 top위치를 구해서 그 쪽으로 이동시킬 수 있도록 변수로 저장해둠.
   let clickTop = document.getElementById("header").offsetTop;
   console.log(clickTop);
-  // top 버튼에 클릭 이벤트를 걸어주기
-  btnTop.addEventListener("click", function (e) {
-    e.preventDefault; // a 링크의 기본 동작 막기 -> 사용한 이유는 click했을 때 a의 기본적인 동작 때문에 이동하는 건지 효과를 주어서 이동하는 지 확인 차에
+
+  const scrollToTop = () => {
     //scrollTo() 함수는 창의 스크롤 위치를 특정 좌표로 이동시키는 기능이다.
     window.scrollTo({
-      top: 0,
+      top: 0, // top 값을 바꿔도 위치롤 이동하지 않음. 뭔가 원초적으로 잘못됐음. 시벌
       // 오타 내지 말장
-      behavior: "smooth",
+      behavior: "smooth", // 부드러운 스크롤
     });
+  };
+  // top 버튼에 클릭 이벤트를 걸어주기
+  btnTop.addEventListener("click", function (e) {
+    // 시발 e.preventDefault의 () <- 이거를 안붙혀서 scrollTo가 개같이 실행했던거임 젠장. 다음엔 이런 실수 절대 안한다 개자식들아 덤벼
+    e.preventDefault(); // a 링크의 기본 동작 막기 -> 사용한 이유는 click했을 때 a의 기본적인 동작 때문에 이동하는 건지 효과를 주어서 이동하는 지 확인 차에
+
+    scrollToTop();
   });
 });
