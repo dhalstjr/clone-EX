@@ -92,7 +92,45 @@ $(function () {
   // scroll을 이용해 헤더 효과 적용 해야함 (scrollTop일 때)
   // header가 fixed일 때 스크롤 값을 연동해서 스크롤이 내려가면 헤더가 사라지고 스크롤이 올라가면 헤더가 나오게 하기
 
-  var thisTop = document.addEventListener("scroll", function () {
-    console.log(thisTop);
+  // top 버튼 변수로 저장 -> id값의 속성으로 한 것은 getElementById로 하고 #은 뺴준다.
+  const btnTop = document.getElementById("top-btn");
+  console.log(btnTop);
+
+  // 스크롤 값이 구하기
+  // 자바스크립트에서는 현재 스크롤값을 구하기 위해서는 document.documentElement.scrollTop
+  var thisScroll = document.documentElement.scrollTop;
+  console.log(thisScroll);
+
+  // 현재 스크롤값만 구해서는 안되고,
+
+  // 창 내부에 스크롤 이벤트 구현
+  window.addEventListener("scroll", function (e) {
+    // 이렇게 하면 스크롤의 Y의 값을 알 수 있다.
+    // console.log(window.scrollY);
+
+    // 일단 이렇게 하면 스크롤값에 따라 active를 추가하긴 하지만, 자연스러운 새로고침을 통해서 나온다. -> 부자연스러운 효과를 구현
+    //if 문을 통해서 스크롤 값이 0보다 클 때를 만들어준다
+    if (thisScroll > 0) {
+      // btnTop을 class를 기입해서 구현, Jquery처럼 show 가능 이런 게 없음
+      btnTop.classList.add("active");
+    } else {
+      btnTop.classList.remove("active");
+    }
+  });
+
+  // 2. top 버튼 클릭 시 홈페이지 맨 위로 이동
+
+  // header의 top위치를 구해서 그 쪽으로 이동시킬 수 있도록 변수로 저장해둠.
+  let clickTop = document.getElementById("header").offsetTop;
+  console.log(clickTop);
+  // top 버튼에 클릭 이벤트를 걸어주기
+  btnTop.addEventListener("click", function (e) {
+    e.preventDefault; // a 링크의 기본 동작 막기 -> 사용한 이유는 click했을 때 a의 기본적인 동작 때문에 이동하는 건지 효과를 주어서 이동하는 지 확인 차에
+    //scrollTo() 함수는 창의 스크롤 위치를 특정 좌표로 이동시키는 기능이다.
+    window.scrollTo({
+      top: 0,
+      // 오타 내지 말장
+      behavior: "smooth",
+    });
   });
 });
