@@ -30,7 +30,11 @@
   z-index: 100;
 }
 
-#header 
+/* header의 유동적인 변화를 위해서 클래스를 부여. */
+/* 이렇게 클래스를 부여해서 top : -70px를 주면 완전히 디자인 초기로 돌아감 왜그러는 지 모르겠음 */
+#header.hide {
+  top: -70px;
+}
 
 /* header에 서브메뉴 -> 메뉴바탕 */
 #header:before {
@@ -1719,8 +1723,8 @@
   right: 5%;
 
   display: block;
-  width: 72px;
-  height: 72px;
+  width: 0px;
+  height: 0px;
   border: 1px solid #2638e0;
   background: #fff;
 
@@ -1730,6 +1734,8 @@
   z-index: 100;
 
   opacity: 0;
+
+  transition: all 300ms ease-in-out;
 }
 
 #top-btn a:before {
@@ -1742,6 +1748,7 @@
   transform: rotate(-45deg);
 
   opacity: 0;
+  transition: all 300ms ease-in-out;
 }
 
 /* top버튼에 scroll값에 따라 active 클래스 추가하여 효과 구현 */
@@ -1753,6 +1760,10 @@
   opacity: 1;
 }
 
+#top-btn.active a {
+  opacity: 1;
+}
+
 #top-btn a {
   display: block;
   width: 100%;
@@ -1761,4 +1772,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* header 유동적으로 변하기 위해서는 속성 값에 따라 동작을 다르게 해야함 */
+/* body[data-top = 'no-top'] 이 방식은 속성 선택자와 + 자손 선택자가 결합한 CSS 표기법이고, */
+/* 일반적인 CSS3 표준 문법으로, 대부분의 브라우저에서 매우 잘 지원된다. */
+body[data-top="no-top"] #top-btn {
+  /* 여기에다가 크기와 높이를 줘야 작은 원에서 나타나는 느낌을 준다. */
+  width: 72px;
+  height: 72px;
+  opacity: 1;
+}
+
+body[data-top="no-top"] #top-btn a:before {
+  opacity: 1;
 }

@@ -92,42 +92,88 @@ $(function () {
   // scroll을 이용해 헤더 효과 적용 해야함 (scrollTop일 때)
   // header가 fixed일 때 스크롤 값을 연동해서 스크롤이 내려가면 헤더가 사라지고 스크롤이 올라가면 헤더가 나오게 하기
 
-  // top 버튼 변수로 저장 -> id값의 속성으로 한 것은 getElementById로 하고 #은 뺴준다.
-  const btnTop = document.getElementById("top-btn");
-  console.log(btnTop);
-
-  // 스크롤 값이 구하기
+  // 1. 스크롤 위치에 따라 속성을 다르게 주는 코드
+  // 현재 위치의 스크롤 값 구하기 (스크롤 값으로 맨 위를 찾기 위해서)
   // 자바스크립트에서는 현재 스크롤값을 구하기 위해서는 document.documentElement.scrollTop
-  var thisScroll = document.documentElement.scrollTop;
+  var thisScroll = window.pageYOffset || document.documentElement.scrollTop;
   console.log(thisScroll);
 
-  // 현재 스크롤값만 구해서는 안되고,
+  // 이건 스크롤 값만을 통해 top인지 no-top인지 확인하는 코드. -> 스크롤과 연동하기 위해서는 scroll 이벤트를 줘야함.
+  // 1 -1 if/else 문을 통해 현재 위치 값이 0이 아닐 떄 -> 한마디로 스크롤 위치가 맨 위가 아니라면
+  // 현재 스크롤 값이 0보다 크면
+  if (thisScroll > 0) {
+    document.body.setAttribute("data-top", "no-top");
+  } else {
+    // 현재 스크롤이 맨 위에 위치했다면 top
+    document.body.setAttribute("data-top", "top");
+  }
+
+  // 1 - 2 스크롤 이벤트를 이용하여 no-top과 top의 속성을 주느 코드를 유동적으로 실행
+  window.addEventListener("scroll", function () {
+    // 스크롤 이벤트에서 현재 스크롤 값을 저장하여 비교
+    const thisScroll = window.pageYOffset || document.documentElement.scrollTop;
+    console.log(thisScroll);
+
+    // if/else 문을 횔용 -> 저 위에 처럼
+    // 스크롤 이벤트에 적용하여 사용하면 스크롤 값에 유동적인 위치에 따라 no-top과 top의 속성이 부여된다.
+    if (thisScroll > 0) {
+      document.body.setAttribute("data-top", "no-top");
+    } else {
+      document.body.setAttribute("data-top", "top");
+    }
+  });
+
+  // 이전 스크롤값을 변수로 저장 (let)
+  // 이전 스크롤값을 변수로 저장하는 이유는 스크롤 방향을 판단하기 위해 이전 스크롤값을 기억해두는 것이다.
+  // 이가 필요한 이유는 현재 스크롤값만 가지고 방향을 알 수가 없기 때문에 이다.
+  // 즉, 방향을 판단하기 위해서는 이전 스크롤 값을 알아야만 방향을 알 수가 있다. -> 이전 스크롤 값이 100이라면 현재 스크롤 값이 200이라고 치면 계산을 하여 음수, 양수가 나올텐데 그걸 통해서 방향을 판단하고 효과를 줄 수 있을 것이다.
+  // 0으로 저장한 이유는 페이지가 처음 열릴 때 아직 스크롤하지 않았다면 이전 위치는 무조건 0이기 때문에 0으로 저장한 것이다.
+  // 1) 스크롤 업다운에 따른 변화
+  let prevScrollTop = 0;
 
   // 창 내부에 스크롤 이벤트 구현
   window.addEventListener("scroll", function (e) {
     // 이렇게 하면 스크롤의 Y의 값을 알 수 있다.
     // console.log(window.scrollY);
+    // 그래서 이걸 현재 스크롤값으로 변수로 저장한다.
+    // const nowScrollTop = window.scrollY;
+    // console.log(nowScrollTop);
+
+    // 저 위 코드와 현재 스크롤 값을 구하는 방식과 코드는 맞다. 하지만 브라우저 호환성을 최대한 확보하고 싶을 때 이 코드가 더 좋을 것이다.
+    // 최신 브라우저만 사용한다면 저 위에 코드가 좀 더 간결하고 좋다.
+    // 여러 브라우저에서 사용하고 싶다면 이 밑에 코드를 사용하는 것이 좋다.
+    const nowScrollTop =
+      window.pageYOffset || document.documentElement.scrollTop();
+    // console.log(nowScrollTop);
 
     // 일단 이렇게 하면 스크롤값에 따라 active를 추가하긴 하지만, 자연스러운 새로고침을 통해서 나온다. -> 부자연스러운 효과를 구현
-    //if 문을 통해서 스크롤 값이 0보다 클 때를 만들어준다
-    if (thisScroll > 0) {
+    // if 문을 통해서 스크롤 값이 0보다 클 때를 만들어준다
+    // 현재 스크롤값과 이전 스크롤 값을 비교하여 방향을 판단.
+    // > 0을 붙인 이유는 방향을 알 기 위해서 이다. 양수와 음수로 방향을 판단.
+    // 아직 이렇게만 구현하면 스크롤이 위로 아래든 똑같이 active 클래스가 구현된다.
+    // 아직 방향을 판단하는 코드가 없으면 스크롤 방향을 판단하지 못한다는 것이다.
+    if (prevScrollTop - nowScrollTop > 0) {
       // btnTop을 class를 기입해서 구현, Jquery처럼 show 가능 이런 게 없음
-      btnTop.classList.add("active");
-    } else {
-      btnTop.classList.remove("active");
+      // btnTop.classList.remove("active");
+    } else if (prevScrollTop - nowScrollTop < 0) {
+      // btnTop.classList.add("active");
     }
   });
 
   // 2. top 버튼 클릭 시 홈페이지 맨 위로 이동
 
-  // header의 top위치를 구해서 그 쪽으로 이동시킬 수 있도록 변수로 저장해둠.
+  // top 버튼 변수로 저장 -> id값의 속성으로 한 것은 getElementById로 하고 #은 뺴준다.
+  const btnTop = document.getElementById("top-btn");
+  console.log(btnTop);
+
+  // header의 top위치(0)를 구해서 그 쪽으로 이동시킬 수 있도록 변수로 저장해둠.
   let clickTop = document.getElementById("header").offsetTop;
-  console.log(clickTop);
+  //   console.log(clickTop);
 
   const scrollToTop = () => {
     //scrollTo() 함수는 창의 스크롤 위치를 특정 좌표로 이동시키는 기능이다.
     window.scrollTo({
-      top: 0, // top 값을 바꿔도 위치롤 이동하지 않음. 뭔가 원초적으로 잘못됐음. 시벌
+      top: clickTop, // top 값을 바꿔도 위치롤 이동하지 않음. 뭔가 원초적으로 잘못됐음. 시벌
       // 오타 내지 말장
       behavior: "smooth", // 부드러운 스크롤
     });
