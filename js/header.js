@@ -132,6 +132,7 @@ $(function () {
   // 0으로 저장한 이유는 페이지가 처음 열릴 때 아직 스크롤하지 않았다면 이전 위치는 무조건 0이기 때문에 0으로 저장한 것이다.
   // 2-1 스크롤 업다운에 따른 변화
   let prevScrollTop = 0;
+  nowScrollTop = 0;
 
   // 2-2 스크롤 방향을 판단하는 함수
   // 스크롤 방향은 값만 가지고 판단할 수 없다. -> 조건문을 활용하여 방향을 판단.
@@ -155,9 +156,13 @@ $(function () {
     // 저 위 코드와 현재 스크롤 값을 구하는 방식과 코드는 맞다. 하지만 브라우저 호환성을 최대한 확보하고 싶을 때 이 코드가 더 좋을 것이다.
     // 최신 브라우저만 사용한다면 저 위에 코드가 좀 더 간결하고 좋다.
     // 여러 브라우저에서 사용하고 싶다면 이 밑에 코드를 사용하는 것이 좋다.
-    const nowScrollTop =
-      window.pageYOffset || document.documentElement.scrollTop();
+
     // console.log(nowScrollTop);
+
+    // 이벤트 밖 let nowScrollTop = 0; 전역 변수로 선언을 하고,
+    // 이벤트 안에 값을 새로 갱신하여 사용한다.
+    // const를 사용하니 지역 변수로, 함수 안에서만 유효하다 보니, 값이 갱신이 안되니 wheelMove()가 전역의 nowScrollTop = 0 값만을 계속 계산하게 되는 것이다.
+    nowScrollTop = window.pageYOffset || document.documentElement.scrollTop();
 
     // 2-4 일단 스크롤이 맨 위(0)가 아닐 때와 맨위일 때를 if/else문으로 설정
     if (nowScrollTop > 0) {
@@ -171,6 +176,9 @@ $(function () {
         document.documentElement.classList.add("scroll-down");
       }
 
+      // 지금 이런 상태세어 prevScrollTop만이 콘솔에 찍히고 nowScrollTop값은 콘솔에 찍히지 않는 이유는
+      // prevScrollTop은 전역변수인 let = prevScrollTop = 0;이 전역변수로 선언돼 있어서 찍히고, nowScrollTop은 찍히지 않는다.
+      // 하지만 nowScrollTop을 전역변수로 선언하면 콘솔 창에 찍히지만 이 코드의 동작은 실행이 되지 않는다.
       prevScrollTop = nowScrollTop;
       console.log(nowScrollTop, prevScrollTop);
     } else {
